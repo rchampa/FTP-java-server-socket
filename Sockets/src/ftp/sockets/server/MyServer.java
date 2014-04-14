@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class MyServer {
-	public static final int PORT=1100;
+	public static final int PORT=21;
 	public static final int MAX_CONCURRENT_CONN=100;
 	public static final int DEFAULT_CONCURRENT_CONN=10;
 	private ServerSocket srv;

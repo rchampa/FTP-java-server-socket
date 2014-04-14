@@ -23,5 +23,10 @@ public class Codigos {
 ////		out.println("213 File status");
 //		out.println("230 OK. Current directory is /");
 		//out.println("200 OK, UTF-8 enabled\r\n");
+		
+		
+//	case "PASV"		:	out.println("227 Entering Passive Mode (127,0,0,1,171,128)");
+//	break;
+//	case "EPSV"		:	out.println("Entering Extended Passive Mode (|||6446|)");
 	}
 }

@@ -26,22 +26,6 @@ public class ThreadForClient extends Thread{
 			out.println("ok\r\n");
 			out.flush();
 			out.println("220 connected");
-//			out.println("220 welcome to my ftp server");
-//			out.println("220 you can use commands doing right click and select 'Enter custom command'");
-//			out.println("220 For example:");
-//			out.println("220 CREATE name_dir creates a new directory named name_dir");
-			
-//			out.println("211-Features:");
-//			out.println("MDTM");
-//			out.println("REST STREAM");
-//			out.println("SIZE");
-//			out.println("MLST type*;size*;modify*;");
-//			out.println("MLSD");
-//			out.println("UTF8");
-//			out.println("CLNT");
-//			out.println("MFMT");
-//			out.println("211 End");
-			//out.println("257 OK. Current directory is \"/public\"");
 			
 			boolean connected = true;
 			
@@ -95,6 +79,26 @@ public class ThreadForClient extends Thread{
 		
 		case "CREATE"	:	createDirectory(args[1]);
 							break;
+						
+		case "SYST"		:	String s = 
+					     	"name: " + System.getProperty ("os.name");
+			    			s += ", version: " + System.getProperty ("os.version");
+			    			s += ", arch: " + System.getProperty ("os.arch");
+			    			out.println(s);
+			    			break;
+			    			
+			    			
+		case "FEAT"		:	out.println("211-Features:");
+//							out.println("MDTM");
+//							out.println("REST STREAM");
+//							out.println("SIZE");
+//							out.println("MLST type*;size*;modify*;");
+//							out.println("MLSD");
+//							out.println("UTF8");
+//							out.println("CLNT");
+//							out.println("MFMT");
+							out.println("211 End");
+							break;
 							
 		case "PWD"		:	out.println("257 \"/public\" is current directory");
 							break;
@@ -104,11 +108,10 @@ public class ThreadForClient extends Thread{
 							
 		case "OPTS"		:	out.println("200 OK, UTF-8 enabled");
 							break;					
-		
-		case "PASV"		:	out.println("227 Entering Passive Mode (127,0,0,1,171,128)");
-							break;
 							
-		case "EPSV"		:	out.println("Entering Extended Passive Mode (|||6446|)");
+		case "EPSV"		:	out.println("");
+							break;
+		case "EPRT"		:	out.println("");
 							break;
 						
 		default			:	out.println("Invalid command");
